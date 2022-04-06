@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace Entities
@@ -8,6 +10,9 @@ namespace Entities
         [Key]
         [StringLength(50)]
         public string CategoryId { get; set; }
+        [Required]
+        [StringLength(100)]
         public string CategoryName { get; set; }
+        public ICollection<ProductEntity> Product { get; set; } 
     }
 }
