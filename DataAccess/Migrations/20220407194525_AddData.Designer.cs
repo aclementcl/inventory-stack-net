@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataAccess.Migrations
 {
     [DbContext(typeof(InventaryContext))]
-    [Migration("20220407192040_FirstMigration")]
-    partial class FirstMigration
+    [Migration("20220407194525_AddData")]
+    partial class AddData
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -35,6 +35,38 @@ namespace DataAccess.Migrations
                     b.HasKey("CategoryId");
 
                     b.ToTable("Categories");
+
+                    b.HasData(
+                        new
+                        {
+                            CategoryId = "ASH",
+                            CategoryName = "Aseo hogar"
+                        },
+                        new
+                        {
+                            CategoryId = "ASP",
+                            CategoryName = "Aseo personal"
+                        },
+                        new
+                        {
+                            CategoryId = "HGR",
+                            CategoryName = "Hogar"
+                        },
+                        new
+                        {
+                            CategoryId = "PRF",
+                            CategoryName = "Perfumería"
+                        },
+                        new
+                        {
+                            CategoryId = "SLD",
+                            CategoryName = "Salud"
+                        },
+                        new
+                        {
+                            CategoryId = "VDJ",
+                            CategoryName = "Videojuegos"
+                        });
                 });
 
             modelBuilder.Entity("Entities.InputOutputEntity", b =>
@@ -114,7 +146,7 @@ namespace DataAccess.Migrations
 
             modelBuilder.Entity("Entities.WarehouseEntity", b =>
                 {
-                    b.Property<string>("WherehouseId")
+                    b.Property<string>("WarehouseId")
                         .HasColumnType("nvarchar(50)")
                         .HasMaxLength(50);
 
@@ -126,16 +158,36 @@ namespace DataAccess.Migrations
                         .HasColumnType("nvarchar(100)")
                         .HasMaxLength(100);
 
-                    b.Property<string>("WherehouseName")
+                    b.Property<string>("WarehouseName")
                         .IsRequired()
                         .HasColumnType("nvarchar(100)")
                         .HasMaxLength(100);
 
-                    b.HasKey("WherehouseId");
+                    b.HasKey("WarehouseId");
 
                     b.HasIndex("StorageId");
 
                     b.ToTable("Warehouses");
+
+                    b.HasData(
+                        new
+                        {
+                            WarehouseId = "e677bbe8-44ed-49e2-a89a-c6b30872ca57",
+                            WarehouseAddress = "Calle 8 con 23",
+                            WarehouseName = "Bodega Central"
+                        },
+                        new
+                        {
+                            WarehouseId = "642bc544-a3dc-4ce9-9035-31477cec55bd",
+                            WarehouseAddress = "Calle 7 con 24",
+                            WarehouseName = "Bodega Norte"
+                        },
+                        new
+                        {
+                            WarehouseId = "ac21668e-e650-4eca-a884-a4ee273b8fa9",
+                            WarehouseAddress = "Calle 6 con 25",
+                            WarehouseName = "Bodega Sur"
+                        });
                 });
 
             modelBuilder.Entity("Entities.InputOutputEntity", b =>

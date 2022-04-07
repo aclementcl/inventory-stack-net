@@ -85,20 +85,43 @@ namespace DataAccess.Migrations
                 name: "Warehouses",
                 columns: table => new
                 {
-                    WherehouseId = table.Column<string>(maxLength: 50, nullable: false),
-                    WherehouseName = table.Column<string>(maxLength: 100, nullable: false),
+                    WarehouseId = table.Column<string>(maxLength: 50, nullable: false),
+                    WarehouseName = table.Column<string>(maxLength: 100, nullable: false),
                     WarehouseAddress = table.Column<string>(maxLength: 100, nullable: false),
                     StorageId = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Warehouses", x => x.WherehouseId);
+                    table.PrimaryKey("PK_Warehouses", x => x.WarehouseId);
                     table.ForeignKey(
                         name: "FK_Warehouses_Storages_StorageId",
                         column: x => x.StorageId,
                         principalTable: "Storages",
                         principalColumn: "StorageId",
                         onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.InsertData(
+                table: "Categories",
+                columns: new[] { "CategoryId", "CategoryName" },
+                values: new object[,]
+                {
+                    { "ASH", "Aseo hogar" },
+                    { "ASP", "Aseo personal" },
+                    { "HGR", "Hogar" },
+                    { "PRF", "Perfumería" },
+                    { "SLD", "Salud" },
+                    { "VDJ", "Videojuegos" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Warehouses",
+                columns: new[] { "WarehouseId", "StorageId", "WarehouseAddress", "WarehouseName" },
+                values: new object[,]
+                {
+                    { "431d9c09-f2a9-4b7b-ba4a-dd45c24b4886", null, "Calle 8 con 23", "Bodega Central" },
+                    { "63558ebc-1b96-4bd7-9bfa-38a6bd70a351", null, "Calle 7 con 24", "Bodega Norte" },
+                    { "09348cdb-cd87-44c3-a325-c7ac9d9867a4", null, "Calle 6 con 25", "Bodega Sur" }
                 });
 
             migrationBuilder.CreateIndex(

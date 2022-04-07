@@ -9,10 +9,10 @@ namespace Entities
     {
         [Key]
         [StringLength(50)]
-        public string WherehouseId { get; set; }
+        public string WarehouseId { get; set; }
         [Required]
         [StringLength(100)]
-        public string WherehouseName { get; set; }
+        public string WarehouseName { get; set; }
         [Required]
         [StringLength(100)]
         public string WarehouseAddress { get; set; }
