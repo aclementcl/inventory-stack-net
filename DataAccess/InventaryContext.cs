@@ -10,5 +10,13 @@ namespace DataAccess
         public DbSet<InputOutputEntity> InOuts { get; set; }
         public DbSet<StorageEntity> Storages { get; set; }
         public DbSet<WarehouseEntity> Warehouses { get; set; }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder options)
+        {
+            if (!options.IsConfigured)
+            {
+                options.UseSqlServer("Server=localhost; Database=InventoryDB; Integrated Security=true;");
+            }
+        }
     }
 }
