@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Entities
 {
-    public class WherehouseEntity
+    public class WarehouseEntity
     {
         [Key]
         [StringLength(50)]
@@ -15,7 +15,7 @@ namespace Entities
         public string WherehouseName { get; set; }
         [Required]
         [StringLength(100)]
-        public string WherehouseAddress { get; set; }
+        public string WarehouseAddress { get; set; }
         public string StorageId { get; set; }
         public StorageEntity Storage { get; set; }
     }

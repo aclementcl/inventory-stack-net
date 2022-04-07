@@ -16,7 +16,7 @@ namespace Entities
         public int PartialQuantity { get; set; }
         public string ProductId { get; set; }
         public ProductEntity Product { get; set; }
-        public ICollection<WherehouseEntity> Wherehouses { get; set; }
+        public ICollection<WarehouseEntity> Warehouses { get; set; }
         public ICollection<InputOutputEntity> InOuts { get; set; }
     }
 }
