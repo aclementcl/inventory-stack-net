@@ -1,3 +1,4 @@
+using Business;
 using Inventory.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Components;
@@ -28,7 +29,8 @@ namespace Inventory
         {
             services.AddRazorPages();
             services.AddServerSideBlazor();
-            services.AddSingleton<WeatherForecastService>();
+            services.AddSingleton<B_Product>();
+            services.AddSingleton<B_Category>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
