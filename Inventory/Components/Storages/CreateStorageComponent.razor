@@ -48,7 +48,7 @@
     {
         oStorage.StorageId = $"{oStorage.WarehouseId}-{oStorage.ProductId}";
 
-        if (!bStorage.IsProductInWarehouse(oStorage.ProductId))
+        if (!bStorage.IsProductInWarehouse(oStorage.StorageId))
         {
             oStorage.LastUpdate = DateTime.Now;
             bStorage.CreateStorage(oStorage);

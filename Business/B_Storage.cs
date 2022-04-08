@@ -26,12 +26,12 @@ namespace Business
             }
         }
 
-        public bool IsProductInWarehouse(string idProduct)
+        public bool IsProductInWarehouse(string idStorage)
         {
             using (var db = new InventaryContext())
             {
                 var product = db.Storages.ToList()
-                    .Where(s => s.ProductId == idProduct);
+                    .Where(s => s.StorageId == idStorage);
 
                 return product.Any();
             }
