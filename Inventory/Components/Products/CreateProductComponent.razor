@@ -2,6 +2,7 @@
 @using Business
 @inject B_Product bProduct
 @inject B_Category bCategoty
+@inject NavigationManager NavManager
 
 <div>
     <EditForm Model="oProduct">
@@ -43,5 +44,6 @@
     private void SaveProduct()
     {
         bProduct.CreateProduct(oProduct);
+        NavManager.NavigateTo("product/list");
     }
 }
